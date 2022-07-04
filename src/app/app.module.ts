@@ -13,7 +13,7 @@ import { Test2pageComponent } from './test2page/test2page.component';
     Test2pageComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [],

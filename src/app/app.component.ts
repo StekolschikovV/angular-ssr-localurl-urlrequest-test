@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ssr-prerender-test';
-
+  constructor() {
+    console.log('AppComponent constructor');
+  }
 }
