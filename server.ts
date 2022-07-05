@@ -31,6 +31,7 @@ export function app(): express.Express {
 
   server.use('/api/*', function(req, res) {
     const url = 'http://jsonplaceholder.typicode.com' + req.originalUrl.replace('/api', '');
+    console.log( req.originalUrl)
     req.pipe(request(url)).pipe(res);
   })
 

@@ -33,11 +33,14 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    // console.log("+origin", origin)
+    // console.log("+this.URL", this.URL)
     const platform = isPlatformBrowser(this.platformId) ?
     'in the browser' : 'on the server';
 
     console.log('called Home', platform, (new Date()).toString());
-    this.http.get(this.URL)
+    // this.http.get(this.URL)
+    this.http.get('http://jsonplaceholder.typicode.com/posts')
       .subscribe(resp => {
 
         console.log("!!!!", resp)

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start1": "ng serve",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -14,7 +15,6 @@
     "e2e": "ng e2e",
     "build:client": "ng build --prod",
     "build:server": "ng run ssr-prerender-test:server",
-    "compile:server": "webpack --config webpack.server.config.js",
     "serve:ssr": "node dist/ssr-prerender-test/server/main.js",
     "build:ssr": "ng build && ng run ssr-prerender-test:server"
   },
