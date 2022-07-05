@@ -3,6 +3,7 @@ import { Component, OnInit, Inject, Optional } from '@angular/core';
 import  axios from 'axios';
 import { APP_BASE_HREF, isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import {GlobalService} from "./global.service";
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ export class AppComponent {
 
   constructor(
     private http: HttpClient,
+    public globalService: GlobalService
     // @Optional() @Inject(APP_BASE_HREF) origin: string,
     // @Inject(PLATFORM_ID) private platformId: Object
   ) {

@@ -1,7 +1,7 @@
 
 {{ title }}
 <ul>
-  <li *ngFor="let item of curs">{{ item.base_ccy }}</li>
+  <li *ngFor="let item of (globalService.sites$ | async)">{{ item.attributes.title }}</li>
 </ul>
 <div *ngFor="let post of posts">
   <a routerLink="/multi/{{post.id}}">{{post.title}}</a>
