@@ -7,6 +7,7 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+const request = require('request');
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -21,6 +22,42 @@ export function app(): express.Express {
 
   server.set('view engine', 'html');
   server.set('views', distFolder);
+
+  server.all('*', function (req, res, next) {
+    let fullUrl = req.headers.host + req.originalUrl;
+    console.log("full url ==> ",fullUrl);
+    next(); // pass control to the next handler
+  });
+
+  server.use('/api/*', function(req, res) {
+    const url = 'http://jsonplaceholder.typicode.com' + req.originalUrl.replace('/api', '');
+    req.pipe(request(url)).pipe(res);
+  })
+
+  // server.get('*api*', (req, res) => {
+  //   // console.log(req, res);
+  //   res.status(200).json([
+  //     {
+  //       "ccy": "USD",
+  //       "base_ccy": "UAH",
+  //       "buy": "35.20000",
+  //       "sale": "35.60000"
+  //     },
+  //     {
+  //       "ccy": "EUR",
+  //       "base_ccy": "UAH",
+  //       "buy": "36.20000",
+  //       "sale": "37.30000"
+  //     },
+  //     {
+  //       "ccy": "BTC",
+  //       "base_ccy": "USD",
+  //       "buy": "18555.2586",
+  //       "sale": "20508.4438"
+  //     }
+  //   ]);
+  // });
+  // https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });

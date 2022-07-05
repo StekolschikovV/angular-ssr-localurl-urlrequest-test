@@ -1,6 +1,11 @@
 
 {{ title }}
-
+<ul>
+  <li *ngFor="let item of curs">{{ item.base_ccy }}</li>
+</ul>
+<div *ngFor="let post of posts">
+  {{post.title}}
+</div>
 <div><a routerLink="/ru/test-1">test-1 ru</a></div>
 <div><a routerLink="/en/test-1">test-1 en</a></div>
 <br>

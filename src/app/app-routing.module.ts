@@ -10,10 +10,6 @@ const routes: Routes = [
     component: Test1pageComponent
   },
   {
-    path: ":lang/test-1",
-    component: Test1pageComponent
-  },
-  {
     path: "ru/test-2",
     component: Test2pageComponent
   },

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Test1pageComponent } from './test1page/test1page.component';
 import { Test2pageComponent } from './test2page/test2page.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { Test2pageComponent } from './test2page/test2page.component';
     Test2pageComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
