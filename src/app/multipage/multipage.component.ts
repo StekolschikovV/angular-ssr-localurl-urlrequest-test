@@ -10,11 +10,12 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class MultipageComponent implements OnInit {
   post = ''
+  name = ''
 
   constructor(
     private http: HttpClient,
-    @Optional() @Inject(APP_BASE_HREF) origin: string,
-    @Inject(PLATFORM_ID) private platformId: Object,
+    // @Optional() @Inject(APP_BASE_HREF) origin: string,
+    // @Inject(PLATFORM_ID) private platformId: Object,
     private route: ActivatedRoute
   ) {
   }
@@ -24,6 +25,10 @@ export class MultipageComponent implements OnInit {
     this.http.get('https://jsonplaceholder.typicode.com/users/' + id)
       .subscribe((resp: any) => {
         this.post = resp.email || '';
+      });
+    this.http.get('https://api.nationalize.io/?name=michael')
+      .subscribe((resp: any) => {
+        this.name = resp.name || '';
       });
   }
 

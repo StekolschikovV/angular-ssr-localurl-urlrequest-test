@@ -28,12 +28,12 @@ export function app(): express.Express {
     console.log("full url ==> ",fullUrl);
     next(); // pass control to the next handler
   });
-
-  server.use('/api/*', function(req, res) {
-    const url = 'http://jsonplaceholder.typicode.com' + req.originalUrl.replace('/api', '');
-    console.log( req.originalUrl)
-    req.pipe(request(url)).pipe(res);
-  })
+  //
+  // server.use('/api/*', function(req, res) {
+  //   const url = 'http://jsonplaceholder.typicode.com' + req.originalUrl.replace('/api', '');
+  //   console.log( req.originalUrl)
+  //   req.pipe(request(url)).pipe(res);
+  // })
 
   // server.get('*api*', (req, res) => {
   //   // console.log(req, res);

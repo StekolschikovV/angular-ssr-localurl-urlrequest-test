@@ -18,7 +18,7 @@ export class AppComponent {
     sale: string
   }[] = [];
   posts: any;
-  URL: string;
+  // URL: string;
   // constructor() {
   //   console.log('AppComponent constructor');
   //   axios.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').then(res => {
@@ -26,10 +26,12 @@ export class AppComponent {
   //   })
   // }
 
-  constructor(private http: HttpClient,
-    @Optional() @Inject(APP_BASE_HREF) origin: string,
-    @Inject(PLATFORM_ID) private platformId: Object) {
-      this.URL = `${origin ? origin : '/api'}/posts`;
+  constructor(
+    private http: HttpClient,
+    // @Optional() @Inject(APP_BASE_HREF) origin: string,
+    // @Inject(PLATFORM_ID) private platformId: Object
+  ) {
+      // this.URL = `${origin ? origin : '/api'}/posts`;
   }
 
   ngOnInit() {
@@ -39,7 +41,7 @@ export class AppComponent {
     // 'in the browser' : 'on the server';
     this.http.get('http://jsonplaceholder.typicode.com/posts')
       .subscribe(resp => {
-        console.log("!!!!", resp)
+        // console.log("!!!!", resp)
         this.posts = resp;
       });
   }
